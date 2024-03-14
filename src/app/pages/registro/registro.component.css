@@ -1,0 +1,21 @@
+.container{
+    height: 90vh;
+    width: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-container{
+    width: 100%;
+}
+.col-auto{
+    text-align: center;
+}
+.col-auto button{
+    margin: 10px;
+    text-decoration: none;
+}
+.col-auto button a{
+    text-decoration: none;
+    color: aliceblue;
+}

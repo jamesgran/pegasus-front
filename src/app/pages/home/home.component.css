@@ -1,0 +1,49 @@
+img{
+    height: 400px;
+    width: 400px;
+    
+}
+.img-text{
+    color: #1C140D;
+    
+}
+
+.col{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content h2{
+    font-weight: bold;
+    color: #1C140D;;
+}
+.content p{
+    font-size: large;
+    text-align: justify;
+    
+}
+button{
+    margin: 3px;
+}
+button a{
+    text-decoration: none;
+    color: #1C140D;
+    
+}
+.btn-custom{
+    background-color: #CBE86B; /* Cambia este valor al color deseado */
+    border-color: #CBE86B; /* Cambia este valor al color deseado */
+    color: #1C140D; /* Cambia este valor al color deseado */
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    border: 0;
+    font-weight: bold;
+}
+.btn-custom:hover {
+    background-color: #dcf18e; /* Cambia este valor al color deseado */
+    color: #1C140D; /* Cambia este valor al color deseado */
+  }

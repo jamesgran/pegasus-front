@@ -1,10 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+/*  paleta https://www.colourlovers.com/palette/359978/w_o_r_d_l_e_s_s_. */
 
-body{
-    background-color: #031634;
-}
 p{
-    color: #E8DDCB;
+    color: #1C140D;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
