@@ -1,15 +1,23 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { ClienteModel } from '../../../core/models/cliente.model';
+import { ClientesService } from '../../../services/clientes/clientes.service';
+import { ActualizarClienteComponent } from "../actualizar-cliente/actualizar-cliente.component";
 
 @Component({
-  selector: 'app-agregar-clientes',
-  standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
-  templateUrl: './agregar-clientes.component.html',
-  styleUrl: './agregar-clientes.component.css'
+    selector: 'app-agregar-clientes',
+    standalone: true,
+    templateUrl: './agregar-clientes.component.html',
+    styleUrl: './agregar-clientes.component.css',
+    imports: [ReactiveFormsModule, RouterLink, MatButtonModule, MatIconModule]
 })
 export class AgregarClientesComponent {
+  
+
+  constructor(private router: Router, private clienteService: ClientesService){}
 
   clienteForm = new FormGroup({
     nombre: new FormControl('', Validators.required),
@@ -21,7 +29,32 @@ export class AgregarClientesComponent {
   })
 
   crearCliente(){
+    const clienteNuevo = this.clienteForm.value;
 
+    //validar si el formulario fue llenado correctamente
+    if(this.clienteForm.valid){
+      const data: ClienteModel = {
+        nombre: clienteNuevo.nombre || "",
+        direccion: clienteNuevo.direccion || "",
+        telefono: clienteNuevo.telefono || "",
+        tipoDocumento: clienteNuevo.tipoDocumento || "",
+        noDocumento: clienteNuevo.noDocumento || '',
+        email: clienteNuevo.email || ''
+      }
+
+      this.clienteService.crearCliente(data).subscribe({
+        next: (res: any) => {
+          console.log('Usuario Creado', res)
+        },
+        error: (error:any) => {
+          console.log('Error al crear el cliente', error)
+        }
+      })
+    }
+
+  }
+  atras(){
+    this.router.navigateByUrl("clientes")
   }
 
 }

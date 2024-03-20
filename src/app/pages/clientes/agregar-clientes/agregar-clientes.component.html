@@ -2,7 +2,6 @@
 
     <h2 class="text-center">Añadir Cliente</h2>
   
-  
     <div class="mb3">
       <label for="nombre" class="form-label">Nombre:</label>
       <input type="text" id="nombre" formControlName="nombre" class="form-control" placeholder="Ingrese el nombre" />
@@ -28,11 +27,8 @@
       <input type="text" id="email" formControlName="email" class="form-control" placeholder="Ingrese el email" />
     </div>
   
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-3">Guardar</button>
-      
-      <button type="button" class="btn btn-danger mb-3">
-        <a routerLink="./../clientes">Cancelar</a>
-      </button>
+    <div class="container text-center">
+      <button mat-raised-button color="primary">Guardar</button>
+      <button mat-raised-button (click)="atras()">Atras</button>
     </div>
   </form>

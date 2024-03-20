@@ -18,12 +18,12 @@ export const routes: Routes = [
   },
   {
     path: 'clientes',
-    title: 'Registro',
+    title: 'Clientes',
     component: VerClientesComponent,
   },
   {
     path: 'agregar-cliente',
-    title: 'Registro',
+    title: 'Agregar Cliente',
     component: AgregarClientesComponent,
   },
 

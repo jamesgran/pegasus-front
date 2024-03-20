@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControlName, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -11,6 +11,11 @@ import { RouterLink } from '@angular/router';
 })
 export class RegistroComponent {
   usuarioForm = new FormGroup({
+    nombre: new FormControl('', Validators.required),
+    telefono: new FormControl('', Validators.required),
+    tipoDocumento: new FormControl('', Validators.required),
+    noDocumento: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
 
   })
 

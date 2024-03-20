@@ -1,0 +1,58 @@
+<div class="container">
+    <h2 mat-dialog-title>Login</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="clienteForm" (submit)="actualizarCliente()">
+                            <div class="mb3">
+                                <label for="nombre" class="form-label">Nombre:</label>
+                                <input type="text" id="nombre" formControlName="nombre" class="form-control"
+                                     />
+                                
+                                    
+                            </div>
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label">Direccion:</label>
+                                <input type="text" id="direccion" formControlName="direccion" class="form-control"
+                                    placeholder="Ingrese la direccion" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Telefono:</label>
+                                <input type="text" id="telefono" formControlName="telefono" class="form-control"
+                                    placeholder="Ingrese el telefono" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="tipoDocumento" class="form-label">Tipo Documento:</label>
+                                <input type="text" id="tipoDocumento" formControlName="tipoDocumento"
+                                    class="form-control" placeholder="Ingrese el tipo de documento" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="noDocumento" class="form-label">No. Documento:</label>
+                                <input type="text" id="noDocumento" formControlName="noDocumento" class="form-control"
+                                    placeholder="Ingrese el numero de documento" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="text" id="email" formControlName="email" class="form-control"
+                                    placeholder="Ingrese el email" />
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" mat-stroked-button color="primary" (click)="actualizarCliente"
+                                    [mat-dialog-close]="true">
+                                    Guardar</button>
+
+                                <button mat-stroked-button color="warn" mat-dialog-close>Atras</button>
+                            </div>
+                            <!-- [disabled]="!clienteForm.valid -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-dialog-content>
+
+</div>

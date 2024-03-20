@@ -26,16 +26,20 @@
                 <td>{{cliente.email}}</td>
                 <td>{{cliente.estado}}</td>
                 <td>
-                    <a class="btn btn-outline-success m-1 "><i class="fa-regular fa-pen-to-square"></i></a>
-                    <a class="btn btn-outline-danger m-1" (click)="eliminarCliente(cliente._id)"><i class="fa-solid fa-trash"></i></a>
+                    <button mat-icon-button color="primary" (click)="editarCliente(cliente)"><mat-icon>edit</mat-icon></button>
+                    <button mat-icon-button color="warn" (click)="eliminarCliente(cliente._id)"> 
+                        <mat-icon>delete</mat-icon>
+                     </button>
                 </td>
             </tr>
             }
         </tbody>
     </table>
-    <div class="container">
-        <button class="btn btn-primary" (click)="crearCliente()">Crear Cliente</button>
+    <div class="container text-center">
+        <button mat-raised-button color="primary" (click)="crearCliente()">Crear Cliente</button>
     </div>
+
+    
 <!--     @if (showMenu) {
       <app-agregar-clientes (addCustomer)="getData($event)"></app-agregar-clientes>
      }  -->
