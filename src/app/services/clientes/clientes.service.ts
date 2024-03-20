@@ -18,6 +18,11 @@ export class ClientesService {
   }
   crearCliente(cliente: ClienteModel){
     return this.httpClient.post(`${base_url}/cliente`, cliente )
-
+  }
+  actualizarCliente(id: any, cliente: ClienteModel){
+    return this.httpClient.put(`${base_url}/cliente/${id}`, cliente)
+  }
+  eliminarCliente(id: number){
+  return this.httpClient.delete(`${base_url}/cliente/${id}`)
   }
 }

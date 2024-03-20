@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialog , MatDialogModule} from '@angular/material/dialog';
 import { ActualizarClienteComponent } from '../actualizar-cliente/actualizar-cliente.component';
+import { EliminarClienteComponent } from '../eliminar-cliente/eliminar-cliente.component';
 
 @Component({
   selector: 'app-ver-clientes',
@@ -32,12 +33,21 @@ export class VerClientesComponent implements OnInit {
   } 
 
   eliminarCliente(idCliente: number): void {
-    console.log('cliente eliminado');
+    const dialogRef = this.modal.open(EliminarClienteComponent, {
+      width: '400px',
+      data: idCliente
+    });
+    
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   crearCliente(): void {
     this.router.navigateByUrl('agregar-cliente');
   }
+
   editarCliente(cliente: any){
 
     const dialogRef = this.modal.open(ActualizarClienteComponent, {
