@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ClienteModel } from '../../../core/models/cliente.model';
 import { ClientesService } from '../../../services/clientes/clientes.service';
 import { ActualizarClienteComponent } from "../actualizar-cliente/actualizar-cliente.component";
+import { RUTAS } from '../../../core/enum/rutas.enum';
 
 @Component({
     selector: 'app-agregar-clientes',
@@ -54,7 +55,7 @@ export class AgregarClientesComponent {
 
   }
   atras(){
-    this.router.navigateByUrl("clientes")
+    this.router.navigateByUrl(RUTAS.CLIENTES)
   }
 
 }

@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatDialog , MatDialogModule} from '@angular/material/dialog';
 import { ActualizarClienteComponent } from '../actualizar-cliente/actualizar-cliente.component';
 import { EliminarClienteComponent } from '../eliminar-cliente/eliminar-cliente.component';
+import { RUTAS } from '../../../core/enum/rutas.enum';
 
 @Component({
   selector: 'app-ver-clientes',
@@ -45,7 +46,7 @@ export class VerClientesComponent implements OnInit {
   }
 
   crearCliente(): void {
-    this.router.navigateByUrl('agregar-cliente');
+    this.router.navigateByUrl(RUTAS.ADD_CLIENTES);
   }
 
   editarCliente(cliente: any){
