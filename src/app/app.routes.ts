@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { RegistroComponent } from './pages/registro/registro.component';
+import { RegistroComponent } from './pages/usuarios/registro/registro.component';
 import { VerClientesComponent } from './pages/clientes/ver-clientes/ver-clientes.component';
 import { AgregarClientesComponent } from './pages/clientes/agregar-clientes/agregar-clientes.component';
 import { authGuard } from './guards/auth/auth.guard';
