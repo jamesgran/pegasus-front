@@ -1,5 +1,5 @@
 export interface Cliente {
-    readonly _id: number;
+    readonly _id: string;
     nombre: String;
     direccion: String;
     telefono: String;
@@ -7,6 +7,8 @@ export interface Cliente {
     tipoDocumento: String;
     noDocumento: String;
     estado: Boolean;
+    usuario_id?: String;
+
 
 
 }

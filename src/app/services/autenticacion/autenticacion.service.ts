@@ -52,6 +52,8 @@ export class AutenticacionService {
           createdAt,
         );
         localStorage.setItem('token', resp.token)
+        localStorage.setItem('usuario', resp.usuario._id)
+        
         return true
       }), 
       catchError((error) =>{
@@ -73,6 +75,7 @@ export class AutenticacionService {
 
   logout() {
     localStorage.removeItem('token');//en vez de guardar elimina todo lo que se llame token
-    this.router.navigateByUrl(RUTAS.AUTENTICACION)
+    localStorage.removeItem('usuario')
+    this.router.navigateByUrl(RUTAS.INICIO)
   }
 }

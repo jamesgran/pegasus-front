@@ -31,11 +31,11 @@ export class UsuariosService {
   crearUsuario(usuario: UsuarioModel){
     return this.httpClient.post(`${base_url}/usuario`, usuario , this.headers)
   }
-  //TODO crear servicios en el back
-  actualizarUsuario(usuario: UsuarioModel){
-    return this.httpClient.put(`${base_url}/usuario/${usuario._id}`, usuario, this.headers)
+
+  actualizarUsuario(id: string, usuario: UsuarioModel){
+    return this.httpClient.put(`${base_url}/usuario/${id}`, usuario, this.headers)
   }
-  eliminarUsuario(id: number){
+  eliminarUsuario(id: string){
   return this.httpClient.delete(`${base_url}/usuario/${id}`, this.headers)
   } 
 

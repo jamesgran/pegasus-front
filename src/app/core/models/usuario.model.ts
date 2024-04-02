@@ -4,13 +4,13 @@ export class UsuarioModel{
         
        public readonly _id :string,
        public nombre :string,
+       public email :string,
        public tipoDocumento :string,
-       public noDocumento :number,
-       public mail :string,
+       public noDocumento :string,
        public password :string,
        public rol :string,
-       public estado :boolean,
-       public createdAt :Date,
+       public estado?:boolean,
+       public createdAt?:Date,
     ){}
 
 }

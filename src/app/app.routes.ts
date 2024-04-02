@@ -4,20 +4,23 @@ import { RegistroComponent } from './pages/usuarios/registro/registro.component'
 import { VerClientesComponent } from './pages/clientes/ver-clientes/ver-clientes.component';
 import { AgregarClientesComponent } from './pages/clientes/agregar-clientes/agregar-clientes.component';
 import { authGuard } from './guards/auth/auth.guard';
+import { PanelComponent } from './pages/panel/panel.component';
+import { VerUsuariosComponent } from './pages/usuarios/ver-usuarios/ver-usuarios.component';
 
 export const routes: Routes = [
 
-  {
+   {
     path: '', 
     title: 'inicio',
     component: HomeComponent
-  },
-  
+  }, 
+
   {
     
-    path: 'home',
-    title: 'Inicio',
+    path: 'panel',
+    title: 'Panel',
     canActivate: [authGuard],
+    component: PanelComponent,
     children: [
 
       {
@@ -25,10 +28,16 @@ export const routes: Routes = [
         title: 'Clientes',
         component: VerClientesComponent,
       },
+
       {
         path: 'agregar-cliente',
         title: 'Agregar Cliente',
         component: AgregarClientesComponent,
+      },
+      {
+        path: 'ver-usuarios',
+        title: 'Ver Usuarios ',
+        component: VerUsuariosComponent,
       },
 
     ]
@@ -41,10 +50,10 @@ export const routes: Routes = [
   },
   
 
-  {
+/*   {
     path: '**', //si no encuentra la ruta, redirecciona al login
     redirectTo: '',
     pathMatch: 'full',
-  }, 
+  },  */
 
 ];

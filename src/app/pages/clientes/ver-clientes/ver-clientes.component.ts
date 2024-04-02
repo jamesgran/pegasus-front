@@ -27,13 +27,13 @@ export class VerClientesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.clientesService.getClientes().subscribe((data: any) => {
+    this.clientesService.getClientesByUsuario().subscribe((data: any) => {
       console.log(data);
       this.misClientes = data.clientes;
     });
   } 
 
-  eliminarCliente(idCliente: number): void {
+  eliminarCliente(idCliente: string): void {
     const dialogRef = this.modal.open(EliminarClienteComponent, {
       width: '400px',
       data: idCliente

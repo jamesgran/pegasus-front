@@ -7,6 +7,7 @@ export class ClienteModel{
         public tipoDocumento: string,
         public noDocumento: string,
         public email: string,
+        public usuario_id?: string,
         public estado?: boolean,
         public createdAt?: Date,
         public updatedAt?: Date,

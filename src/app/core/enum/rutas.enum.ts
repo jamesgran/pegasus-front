@@ -1,11 +1,14 @@
 export enum RUTAS{
-    AUTENTICACION = 'auth/login',
+    
     INICIO = '',
-    ACERCA_DE = 'home/acercade',
-    CONTACTO = 'home/contacto',
-    CLIENTES = 'home/clientes',
-    ADD_CLIENTES = 'home/agregar-cliente',
-    SERVICIOS = 'home/servicio',
-    USUARIOS = 'registro'
+    ACERCA_DE = 'panel/acercade',
+    CONTACTO = 'panel/contacto',
+    CLIENTES = 'panel/clientes',
+    ADD_CLIENTES = 'panel/agregar-cliente',
+    SERVICIOS = 'panel/servicio',
+    USUARIOS = 'registro',
+    VER_USUARIOS= 'panel/usuarios',
+    PANEL = 'panel',
+    ADD_USUARIO= 'panel/agregar-usuario'
 
 }

@@ -15,6 +15,10 @@ export class ClientesService {
     return localStorage.getItem('token') || ''
   }
 
+  get usuario_id(): string {
+    return localStorage.getItem('usuario') || ''
+  }
+
   get headers (){
     return {
       headers: {
@@ -26,6 +30,11 @@ export class ClientesService {
 
   getClientes(){
     return this.httpClient.get(`${base_url}/cliente`, this.headers)
+  }
+
+  getClientesByUsuario(){
+    return this.httpClient.get(`${base_url}/cliente/${this.usuario_id}`, this.headers)
+
   }
   crearCliente(cliente: ClienteModel){
     return this.httpClient.post(`${base_url}/cliente`, cliente , this.headers)

@@ -1,0 +1,31 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <h1 class="example-app-name">Pegasus CMR</h1>
+        <div class="boton">
+        <button mat-raised-button color="accent" (click)="cerrarSesion()">Cerrar sesion</button>
+        </div>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <mat-nav-list>
+                <a mat-list-item routerLink="clientes">Clientes</a>
+                <a mat-list-item routerLink="agregar-cliente">agregar</a>
+                <a mat-list-item routerLink="oportunindades">Oportunindades</a>
+                <a mat-list-item routerLink=".">Tareas</a>
+                <a mat-list-item routerLink="ver-usuarios">Usuarios</a>
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+
+            <router-outlet></router-outlet>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <app-footer></app-footer>
+</div>

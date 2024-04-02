@@ -31,6 +31,8 @@ export class AgregarClientesComponent {
 
   crearCliente(){
     const clienteNuevo = this.clienteForm.value;
+    const usuarioId = this.clienteService.usuario_id
+    
 
     //validar si el formulario fue llenado correctamente
     if(this.clienteForm.valid){
@@ -40,7 +42,8 @@ export class AgregarClientesComponent {
         telefono: clienteNuevo.telefono || "",
         tipoDocumento: clienteNuevo.tipoDocumento || "",
         noDocumento: clienteNuevo.noDocumento || '',
-        email: clienteNuevo.email || ''
+        email: clienteNuevo.email || '',
+        usuario_id: usuarioId
       }
 
       this.clienteService.crearCliente(data).subscribe({
