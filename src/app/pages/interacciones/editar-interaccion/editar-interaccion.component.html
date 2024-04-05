@@ -4,7 +4,7 @@
     <div class="col">
       <div class="card col-9 mx-auto p-2">
         <div class="card-body">
-          <form class="row text-center" [formGroup]="interaccionForm" (submit)="crearInteraccion()">
+          <form class="row text-center" [formGroup]="interaccionForm" (submit)="actualizarInteraccion()">
             <table class="example-full-width" cellspacing="0">
               <tr>
                 <td> <mat-form-field class="example-full-width">
@@ -57,10 +57,6 @@
               <mat-label>Notas adicionales</mat-label>
               <textarea matInput formControlName="notas"></textarea>
             </mat-form-field>
-
-            <!--                               <mat-form-field>
-                                <input type="file">
-                              </mat-form-field> -->
 
 
 

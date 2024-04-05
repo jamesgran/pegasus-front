@@ -10,6 +10,8 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { InteraccionService } from '../../../services/interaccion/interaccion.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarInteraccionComponent } from '../editar-interaccion/editar-interaccion.component';
 
 @Component({
   selector: 'app-ver-interacciones',
@@ -44,7 +46,10 @@ export class VerInteraccionesComponent implements OnInit, OnDestroy{
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private interaccionesService: InteraccionService) {
+  constructor(
+    private interaccionesService: InteraccionService,
+    private modal: MatDialog
+    ) {
   }
 
 
@@ -71,15 +76,23 @@ export class VerInteraccionesComponent implements OnInit, OnDestroy{
     this.interaccionesSubscription = this.interaccionesService
       .getInteraccionesByUsuario()
       .subscribe((res: any) => {
-        console.log(res)
+        
         this.dataSource = new MatTableDataSource(res.interacciones);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(this.dataSource)
+        
       });
   }
 
   editarInteraccion(interaccion: any){
+    const dialogRef = this.modal.open(EditarInteraccionComponent, {
+      width: '700px',
+      data: interaccion
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.cargarInteracciones()
+    });
   }
 }

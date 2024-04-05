@@ -27,7 +27,7 @@ import { ActualizarUsuarioComponent } from '../actualizar-usuario/actualizar-usu
   styleUrl: './ver-usuarios.component.css'
 })
 export class VerUsuariosComponent {
-  usuarioSubscription: Subscription;
+  /* usuarioSubscription: Subscription;
   usuarios: UsuarioModel[] = [];
   usuarioLogin: UsuarioModel;
   roles = config.roles //object.values trae los valors del objeto y los guarda enuna lista
@@ -91,7 +91,7 @@ export class VerUsuariosComponent {
       console.log(`Dialog result: ${result}`);
     });
   }
-
+ */
   }
 
 

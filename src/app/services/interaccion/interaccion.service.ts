@@ -35,8 +35,8 @@ export class InteraccionService {
     return this.httpClient.post(`${base_url}/interaccion`, interaccion , this.headers)
   }
 
-  actualizarOportunidad(oportunidad: any){//TODO model o interface
-    return this.httpClient.put(`${base_url}/oportunidad/${oportunidad._id}`, oportunidad, this.headers)
+  actualizarInteraccion(interaccion: any){//TODO model o interface
+    return this.httpClient.put(`${base_url}/interaccion/${interaccion._id}`, interaccion, this.headers)
   }
 
 /*   
