@@ -60,7 +60,7 @@ export class LoginComponent {
         }
       },
       error: (error: any) => {
-        console.error(error.error)
+        Swal.fire('Error','Credenciales no validas','error')
       }
     });
   }

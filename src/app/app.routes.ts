@@ -9,6 +9,7 @@ import { VerUsuariosComponent } from './pages/usuarios/ver-usuarios/ver-usuarios
 import { VerOportunidadesComponent } from './pages/oportunidades/ver-oportunidades/ver-oportunidades.component';
 import { CrearOportunidadComponent } from './pages/oportunidades/crear-oportunidad/crear-oportunidad.component';
 import { VerInteraccionesComponent } from './pages/interacciones/ver-interacciones/ver-interacciones.component';
+import { GraficosComponent } from './pages/graficos/graficos.component';
 
 export const routes: Routes = [
 
@@ -56,6 +57,11 @@ export const routes: Routes = [
         path: 'ver-interacciones',
         title: 'Ver oportunidades',
         component: VerInteraccionesComponent,
+      },
+      {
+        path: 'graficos',
+        title: 'Graficos',
+        component: GraficosComponent,
       },
       
 

@@ -14,6 +14,7 @@ import {
 import { ClienteModel } from '../../../core/models/cliente.model';
 import { Cliente } from '../../../core/interfaces/cliente';
 import { ClientesService } from '../../../services/clientes/clientes.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -68,10 +69,10 @@ export class ActualizarClienteComponent {
       };
       this.clienteService.actualizarCliente(this.data._id, newData).subscribe({
         next: (res: any) => {
-          console.log('Cliente actualizado', res)
+          Swal.fire('Completado', 'Cliente actualizado con exito', 'success')
         },
         error : (error: any) => {
-          console.log('Error al crear el cliente', error)
+          Swal.fire('Error', 'Error al actualizar', 'error')
         }
       })
 

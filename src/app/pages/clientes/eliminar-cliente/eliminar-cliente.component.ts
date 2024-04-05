@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Cliente } from '../../../core/interfaces/cliente';
 import { ClientesService } from '../../../services/clientes/clientes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-eliminar-cliente',
@@ -16,14 +17,13 @@ export class EliminarClienteComponent {
   private clienteService: ClientesService,) {}
 
     eliminarCliente() {
-    console.log('are you there?')
-    console.log(this.data)
+
      this.clienteService.eliminarCliente(this.data).subscribe({
       next: (res: any) =>{
-        console.log('Cliente eliminado', res)
+        Swal.fire('Completado', 'Cliente eliminado exitosamente', 'success')
       },
       error: (error: any) =>{
-        console.log('error al eliminar el Cliente', error)
+        Swal.fire('Error', 'Error al eliminar', 'error')
       }
     }) 
 

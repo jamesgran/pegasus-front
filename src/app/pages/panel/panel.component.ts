@@ -10,6 +10,7 @@ import {MatListModule} from '@angular/material/list';
 import { RouterLink } from '@angular/router';
 import { VerClientesComponent } from "../clientes/ver-clientes/ver-clientes.component";
 import { AutenticacionService } from '../../services/autenticacion/autenticacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-panel',
@@ -45,6 +46,9 @@ export class PanelComponent implements OnDestroy{
 
   cerrarSesion():void {
     this.autenticacionService.logout()
+  }
+  openModal(){
+    Swal.fire('En construccion','Esta funcionalidad aun esta en construccion','warning')
   }
 
 

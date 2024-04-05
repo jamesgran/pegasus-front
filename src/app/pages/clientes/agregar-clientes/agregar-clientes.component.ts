@@ -7,6 +7,7 @@ import { ClienteModel } from '../../../core/models/cliente.model';
 import { ClientesService } from '../../../services/clientes/clientes.service';
 import { ActualizarClienteComponent } from "../actualizar-cliente/actualizar-cliente.component";
 import { RUTAS } from '../../../core/enum/rutas.enum';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-agregar-clientes',
@@ -48,10 +49,11 @@ export class AgregarClientesComponent {
 
       this.clienteService.crearCliente(data).subscribe({
         next: (res: any) => {
-          console.log('Usuario Creado', res)
+          Swal.fire('Completado', 'Cliente creado con exito', 'success')
+          this.router.navigateByUrl(RUTAS.CLIENTES)
         },
         error: (error:any) => {
-          console.log('Error al crear el cliente', error)
+          Swal.fire('Error', 'Error al crear', 'error')
         }
       })
     }
