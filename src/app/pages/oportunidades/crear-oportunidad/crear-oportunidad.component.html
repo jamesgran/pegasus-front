@@ -1,0 +1,62 @@
+<mat-stepper linear="true" #stepper class="container col-10 mt-5">
+    <mat-step [stepControl]="clienteForm">
+        <form [formGroup]="clienteForm">
+            <ng-template matStepLabel>Buscar cliente</ng-template>
+            <div class="row">
+
+                <mat-form-field>
+                    <mat-label>Buscar identificacion del cliente</mat-label>
+                    <input matInput required formControlName="documento">
+                </mat-form-field>
+                <div class="text-center">
+                    <button mat-button color="primary" class="col-3" (click)="buscarCliente()">Buscar</button>
+                    <mat-hint *ngIf="!resultado" class="row">
+                        <strong style="color: crimson">No se encontraron resultados</strong>
+                    </mat-hint>
+
+                    <mat-hint *ngIf="hayCliente" class="row">
+                        <strong style="color: rgb(12, 122, 21)">Se encontro el cliente: {{clienteBuscado[0].nombre}}</strong>
+                    </mat-hint>
+                </div>
+
+
+            </div>
+            <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button matStepperNext [disabled]="!hayCliente">Siguiente</button>
+            </div>
+
+
+
+
+
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" label="Diligenciar descripcion">
+        <form [formGroup]="secondFormGroup" class="text-center row">
+
+            <mat-form-field class="m-5 col-5">
+                <mat-label>Plazo maximo</mat-label>
+                <input matInput [matDatepicker]="picker" required formControlName="deadline">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+            <mat-form-field >
+                <mat-label>Descripcion</mat-label>
+                <textarea matInput formControlName="descripcion" required></textarea>
+            </mat-form-field>
+
+
+
+            <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button (click)="crearOportunidad()">Guardar</button>
+    
+            </div>
+        </form>
+    </mat-step>
+
+</mat-stepper>

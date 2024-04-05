@@ -1,13 +1,11 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { ClienteModel } from '../../core/models/cliente.model';
-
 const base_url = environment.base_url
 @Injectable({
   providedIn: 'root'
 })
-export class ClientesService {
+export class OportunidadesService {
 
   constructor(private httpClient: HttpClient) { }
 
@@ -28,25 +26,28 @@ export class ClientesService {
   }
 
 
-  getClientes(){
-    return this.httpClient.get(`${base_url}/cliente`, this.headers)
+  getOportunidades(){
+    return this.httpClient.get(`${base_url}/oportunidad/${this.usuario_id}`, this.headers)
   }
-
-  getClientesByUsuario(){
-    return this.httpClient.get(`${base_url}/cliente/${this.usuario_id}`, this.headers)
-
-  }
-  getClientesByDocumento(documento: string){
-    return this.httpClient.get(`${base_url}/cliente/un-cliente/${documento}`, this.headers)
+  getOportunidadesByUsuario(){
+    return this.httpClient.get(`${base_url}/oportunidad/OportunidadesByUsuario/${this.usuario_id}`, this.headers)
 
   }
+
+  //TODO añadir modelo o interface
+  crearOportunidad(oportunidad: any){
+    return this.httpClient.post(`${base_url}/oportunidad`, oportunidad , this.headers)
+  }
+  actualizarOportunidad(oportunidad: any){//TODO model o interface
+    return this.httpClient.put(`${base_url}/oportunidad/${oportunidad._id}`, oportunidad, this.headers)
+  }
+
+/*   
   crearCliente(cliente: ClienteModel){
     return this.httpClient.post(`${base_url}/cliente`, cliente , this.headers)
   }
-  actualizarCliente(id: any, cliente: ClienteModel){
-    return this.httpClient.put(`${base_url}/cliente/${id}`, cliente, this.headers)
-  }
+
   eliminarCliente(id: number){
   return this.httpClient.delete(`${base_url}/cliente/${id}`, this.headers)
-  }
+  } */
 }

@@ -6,6 +6,8 @@ import { AgregarClientesComponent } from './pages/clientes/agregar-clientes/agre
 import { authGuard } from './guards/auth/auth.guard';
 import { PanelComponent } from './pages/panel/panel.component';
 import { VerUsuariosComponent } from './pages/usuarios/ver-usuarios/ver-usuarios.component';
+import { VerOportunidadesComponent } from './pages/oportunidades/ver-oportunidades/ver-oportunidades.component';
+import { CrearOportunidadComponent } from './pages/oportunidades/crear-oportunidad/crear-oportunidad.component';
 
 export const routes: Routes = [
 
@@ -39,6 +41,17 @@ export const routes: Routes = [
         title: 'Ver Usuarios ',
         component: VerUsuariosComponent,
       },
+      {
+        path: 'oportunidades',
+        title: 'Oportunidades',
+        component: VerOportunidadesComponent,
+      },
+      {
+        path: 'agregar-oportunidad',
+        title: 'Agregar oportunidades',
+        component: CrearOportunidadComponent,
+      },
+      
 
     ]
  
@@ -48,7 +61,7 @@ export const routes: Routes = [
     title: 'Registro',
     component: RegistroComponent,
   },
-  
+
 
 /*   {
     path: '**', //si no encuentra la ruta, redirecciona al login

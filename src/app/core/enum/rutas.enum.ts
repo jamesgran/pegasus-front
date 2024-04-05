@@ -9,6 +9,9 @@ export enum RUTAS{
     USUARIOS = 'registro',
     VER_USUARIOS= 'panel/usuarios',
     PANEL = 'panel',
-    ADD_USUARIO= 'panel/agregar-usuario'
+    ADD_USUARIO= 'panel/agregar-usuario',
+    ADD_OPORTUNIDAD= 'panel/agregar-oportunidad',
+    VER_OPORTUNIDADES = 'panel/oportunidades'
+
 
 }

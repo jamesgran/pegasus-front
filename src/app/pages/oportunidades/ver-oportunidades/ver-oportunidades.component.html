@@ -1,0 +1,33 @@
+<div class="container m-4 p-3">
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                
+                <th>Nombre Cliente</th>
+                <th>Identificacion</th>
+                <th>Fecha creacion</th>
+                <th>Plazo</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (oportunidad of oportunidades; track $index) {
+            <tr>
+                
+                <td>{{oportunidad.cliente_id.nombre}}</td>
+                <td>{{oportunidad.cliente_id.noDocumento}}</td>
+                <td>{{oportunidad.createdAt}}</td>
+                <td>{{oportunidad.deadline}}</td>
+                <td>{{oportunidad.estado}}</td>
+                <td>
+                    <button mat-icon-button color="primary" (click)="editarOportunidad(oportunidad)"><mat-icon>open_in_new</mat-icon></button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div class="container text-center">
+        <button mat-raised-button color="primary" (click)="crearOportunidad()">Crear Oportunidad</button>
+    </div>

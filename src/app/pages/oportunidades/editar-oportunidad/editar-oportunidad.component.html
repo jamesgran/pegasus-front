@@ -1,0 +1,51 @@
+<div class="container">
+    <h2 mat-dialog-title class="text-center">Ver oportunidad</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card col-9 mx-auto p-2">
+                    <div class="card-body">
+                        <form class="row text-center" [formGroup]="oportunidadForm" (submit)="actualizarOportunidad()">
+                            <mat-form-field class="row">
+                                <mat-label>Plazo maximo</mat-label>
+                                <input matInput [matDatepicker]="picker" required formControlName="deadline">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+
+                              <mat-form-field class="row">
+                                <mat-label>Cambiar estado</mat-label>
+                                <mat-select [(value)]="estadoSeleccionado" formControlName="estado">
+                                  <mat-option value="Abierta">Abierta</mat-option>
+                                  <mat-option value="Anulada">Anulada</mat-option>
+                                  <mat-option value="Pendiente">Pendiente</mat-option>
+                                  <mat-option value="Vencida">Vencida</mat-option>
+                                  <mat-option value="Completada">Completada</mat-option>
+                                  <mat-option value="Perdida">Perdida</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+
+                              <mat-form-field class="row" >
+                                <mat-label>Descripcion</mat-label>
+                                <textarea matInput formControlName="descripcion" required></textarea>
+                            </mat-form-field>
+                           
+                            <div class="text-center">
+                                <button type="submit" mat-stroked-button color="primary" 
+                                    [mat-dialog-close]="true">
+                                    Guardar</button>
+
+                                <button mat-stroked-button color="warn" mat-dialog-close>Atras</button>
+                            </div>
+                            <!-- [disabled]="!clienteForm.valid -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-dialog-content>
+
+</div>
