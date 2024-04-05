@@ -1,0 +1,83 @@
+
+    <h2 mat-dialog-title class="text-center">Añadir interaccion</h2>
+    <mat-dialog-content class="mat-typography">
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card col-9 mx-auto p-2">
+                    <div class="card-body">
+                        <form class="row text-center" [formGroup]="interaccionForm" (submit)="crearInteraccion()">
+                            <table class="example-full-width" cellspacing="0"><tr>
+                                <td> <mat-form-field class="example-full-width">
+                                    <mat-label>Fecha de la interaccion</mat-label>
+                                    <input matInput [matDatepicker]="picker" required formControlName="fecha">
+                                    <mat-hint>MM/DD/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field></td>
+
+                                <td><mat-form-field class="example-full-width">
+                                    <mat-label>Tipo de interaccion</mat-label>
+                                    <mat-select formControlName="tipo" required>
+                                      <mat-option value="LLamada telefonica">LLamada telefonica</mat-option>
+                                      <mat-option value="Correo electronico">Correo electronico</mat-option>
+                                      <mat-option value="Reunion">Reunion</mat-option>
+                                      <mat-option value="Mensaje de texto">Mensaje de texto</mat-option>
+                                      <mat-option value="Mensaje de voz">Mensaje de voz</mat-option>
+                                      <mat-option value="Videollamada">Videollamada</mat-option>
+                                    </mat-select>
+                                  </mat-form-field></td>
+                              </tr></table>
+
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Detalles de la interaccion</mat-label>
+                                <textarea matInput formControlName="detalles" required></textarea>
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Resultado de la interaccion</mat-label>
+                                <mat-select formControlName="resultado" required>
+                                  <mat-option value="Finalizada">Finalizada</mat-option>
+                                  <mat-option value="En progreso">En progreso</mat-option>
+                                  <mat-option value="Cancelada">Cancelada</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+
+
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Calificacion de la interaccion</mat-label>
+                                <mat-select formControlName="calificacion" >
+                                  <mat-option value="Buena">Buena</mat-option>
+                                  <mat-option value="Neutral">Neutral</mat-option>
+                                  <mat-option value="Mala">Mala</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Notas adicionales</mat-label>
+                                <textarea matInput formControlName="notas" ></textarea>
+                            </mat-form-field>
+
+<!--                               <mat-form-field>
+                                <input type="file">
+                              </mat-form-field> -->
+
+                            
+
+                           
+                            <div class="text-center">
+                                <button type="submit" mat-stroked-button color="primary" 
+                                    [mat-dialog-close]="true">
+                                    Guardar</button>
+
+                                <button mat-stroked-button color="warn" mat-dialog-close>Atras</button>
+                            </div>
+                            <!-- [disabled]="!clienteForm.valid -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-dialog-content>
+
+

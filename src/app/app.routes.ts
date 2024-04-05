@@ -8,6 +8,7 @@ import { PanelComponent } from './pages/panel/panel.component';
 import { VerUsuariosComponent } from './pages/usuarios/ver-usuarios/ver-usuarios.component';
 import { VerOportunidadesComponent } from './pages/oportunidades/ver-oportunidades/ver-oportunidades.component';
 import { CrearOportunidadComponent } from './pages/oportunidades/crear-oportunidad/crear-oportunidad.component';
+import { VerInteraccionesComponent } from './pages/interacciones/ver-interacciones/ver-interacciones.component';
 
 export const routes: Routes = [
 
@@ -50,6 +51,11 @@ export const routes: Routes = [
         path: 'agregar-oportunidad',
         title: 'Agregar oportunidades',
         component: CrearOportunidadComponent,
+      },
+      {
+        path: 'ver-interacciones',
+        title: 'Ver oportunidades',
+        component: VerInteraccionesComponent,
       },
       
 

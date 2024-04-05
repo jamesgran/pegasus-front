@@ -2,7 +2,7 @@
     <table class="table table-striped-columns">
         <thead>
             <tr>
-                <th scope="col">Item</th>
+                
                 <th>Nombre</th>
                 <th>Direccion</th>
                 <th>Telefono</th>
@@ -17,7 +17,7 @@
         <tbody>
             @for (cliente of misClientes; track $index) {
             <tr>
-                <td scope>{{$index+1}}</td>
+                
                 <td>{{cliente.nombre}}</td>
                 <td>{{cliente.direccion}}</td>
                 <td>{{cliente.telefono}}</td>
@@ -30,7 +30,7 @@
                     <button mat-icon-button color="warn" (click)="eliminarCliente(cliente._id)"> 
                         <mat-icon>delete</mat-icon>
                      </button>
-                     <button mat-icon-button color="primary" (click)="editarCliente(cliente)"><mat-icon>add_task</mat-icon></button>
+                     <button mat-icon-button color="accent" (click)="anadirInteraccion(cliente)"><mat-icon>add_task</mat-icon></button>
                 </td>
             </tr>
             }

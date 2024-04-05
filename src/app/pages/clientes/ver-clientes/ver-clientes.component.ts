@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Cliente } from '../../../core/interfaces/cliente';
 import { Router } from '@angular/router';
 import { ClientesService } from '../../../services/clientes/clientes.service';
@@ -8,6 +8,8 @@ import { MatDialog , MatDialogModule} from '@angular/material/dialog';
 import { ActualizarClienteComponent } from '../actualizar-cliente/actualizar-cliente.component';
 import { EliminarClienteComponent } from '../eliminar-cliente/eliminar-cliente.component';
 import { RUTAS } from '../../../core/enum/rutas.enum';
+import { CrearInteraccionComponent } from '../../interacciones/crear-interaccion/crear-interaccion.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-ver-clientes',
@@ -16,8 +18,9 @@ import { RUTAS } from '../../../core/enum/rutas.enum';
   templateUrl: './ver-clientes.component.html',
   styleUrl: './ver-clientes.component.css',
 })
-export class VerClientesComponent implements OnInit {
+export class VerClientesComponent implements OnInit, OnDestroy {
   misClientes: Cliente[] = [];
+  clienteSubscription: Subscription;
   
 
   constructor(
@@ -25,13 +28,19 @@ export class VerClientesComponent implements OnInit {
     private clientesService: ClientesService,
     private modal: MatDialog
   ) {}
+  ngOnDestroy(): void {
+    this.clienteSubscription?.unsubscribe()
+  }
 
   ngOnInit(): void {
-    this.clientesService.getClientesByUsuario().subscribe((data: any) => {
+    this.cargarClientes()
+  } 
+  cargarClientes(){
+    this.clienteSubscription = this.clientesService.getClientesByUsuario().subscribe((data: any) => {
       console.log(data);
       this.misClientes = data.clientes;
     });
-  } 
+  }
 
   eliminarCliente(idCliente: string): void {
     const dialogRef = this.modal.open(EliminarClienteComponent, {
@@ -58,6 +67,19 @@ export class VerClientesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.cargarClientes()
     });
+  }
+
+  anadirInteraccion(cliente: any){
+    const dialogRef = this.modal.open(CrearInteraccionComponent, {
+      width: '700px',
+      data: cliente
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+
   }
 }
