@@ -41,6 +41,7 @@ export class RegistroComponent {
     this.usuarioService.crearUsuario(newUsuario).subscribe({
       next: (res: any)=>{
         Swal.fire('Procceso exitoso', 'Usuario creado exitosamente', 'success')
+        this.router.navigateByUrl(RUTAS.INICIO)
 
       },
       error: (err: any) =>{
